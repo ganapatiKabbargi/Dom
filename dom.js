@@ -1,5 +1,8 @@
-const headertitleEl=document.getElementById("header-title");
-const titleEl=document.querySelector(".container h2")
-headertitleEl.style.borderBottom="4px solid black"
-titleEl.style.color="green"
-titleEl.style.fontWeight="bold"
+var itemsEl=document.getElementsByClassName("list-group-item");
+
+itemsEl[1].style.backgroundColor="green";
+
+for(let item of itemsEl){
+    item.style.fontWeight="bold"
+    item.style.color="red"
+}
