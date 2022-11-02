@@ -1,37 +1,39 @@
-var items=document.querySelector("#items")
-items.parentNode.style.backgroundColor="red"
 
-var items=document.querySelector("#items")
-items.parentElement.parentElement.style.backgroundColor="yellow"
+var formEl=document.querySelector("#addForm")
+var ul=document.querySelector("#items")
 
-console.log(items.firstchild)
+formEl.addEventListener("submit" , Onsubmit)
+ul.addEventListener("click" ,remove)
 
+function Onsubmit(e){
+    e.preventDefault();
+    var item=document.querySelector("#item").value
 
-items.firstElementChild.style.backgroundColor="yellow"
+    var li=document.createElement("li")
+    var text=document.createTextNode(item)
+    li.appendChild(text)
+    li.className="list-group-item"
 
-console.log(items.lastChild)
+    var deletebtn=document.createElement("button")
+    var Editbtn=document.createElement("button")
+    deletebtn.className="btn btn-danger btn-sm float-right delete"
+    Editbtn.className="btn  btn-sm  float-right edit"
+    deletebtn.appendChild(document.createTextNode("X"))
+    Editbtn.appendChild(document.createTextNode("Edit"))
+    li.appendChild(Editbtn)
+    li.appendChild(deletebtn)
+    
+    ul.append(li)
+}
 
-items.lastElementChild.style.backgroundColor="blue"
-
-var formEl=document.querySelector(".form-inline")
-console.log(formEl.nextElementSibling)
-formEl.nextElementSibling.style.color="green"
-
-formEl.previousElementSibling.style.color="yellow"
-
-var newli=document.createElement("li")
-
-newli.setAttribute("class","list-group-item")
-newlitext=document.createTextNode("Hello")
-newli.appendChild(newlitext)
-items.prepend(newli)
-
-
-var helloText=document.createTextNode("Hello")
-var container=document.querySelector("header .container")
-container.prepend(helloText)
-
-
+function remove(e){
+    if(e.target.classList.contains("delete")){
+        if(confirm("Are you sure")){
+            var li=e.target.parentElement
+            ul.removeChild(li);
+        }
+    }
+}
 
 
 
