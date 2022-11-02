@@ -1,17 +1,37 @@
-// querryselector
+var items=document.querySelector("#items")
+items.parentNode.style.backgroundColor="red"
 
-var secondEl=document.querySelector(".list-group-item:nth-child(2)")
-var thirdEl=document.querySelector(".list-group-item:nth-child(3)")
-secondEl.style.backgroundColor="green"
-thirdEl.style.visibility="hidden"
+var items=document.querySelector("#items")
+items.parentElement.parentElement.style.backgroundColor="yellow"
 
-// querySelectorAll
+console.log(items.firstchild)
 
-var listItemAll=document.querySelectorAll(".list-group-item")
-listItemAll[1].style.color="green"
 
-var odd=document.querySelectorAll(".list-group-item:nth-child(odd)")
-for(let item of odd){
-    item.style.backgroundColor="green"
-}
+items.firstElementChild.style.backgroundColor="yellow"
+
+console.log(items.lastChild)
+
+items.lastElementChild.style.backgroundColor="blue"
+
+var formEl=document.querySelector(".form-inline")
+console.log(formEl.nextElementSibling)
+formEl.nextElementSibling.style.color="green"
+
+formEl.previousElementSibling.style.color="yellow"
+
+var newli=document.createElement("li")
+
+newli.setAttribute("class","list-group-item")
+newlitext=document.createTextNode("Hello")
+newli.appendChild(newlitext)
+items.prepend(newli)
+
+
+var helloText=document.createTextNode("Hello")
+var container=document.querySelector("header .container")
+container.prepend(helloText)
+
+
+
+
 
