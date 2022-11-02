@@ -1,15 +1,17 @@
-// var itemsEl=document.getElementsByClassName("list-group-item");
+// querryselector
 
-// itemsEl[1].style.backgroundColor="green";
+var secondEl=document.querySelector(".list-group-item:nth-child(2)")
+var thirdEl=document.querySelector(".list-group-item:nth-child(3)")
+secondEl.style.backgroundColor="green"
+thirdEl.style.visibility="hidden"
 
-// for(let item of itemsEl){
-//     item.style.fontWeight="bold"
-//     item.style.color="red"
-// }
+// querySelectorAll
 
-var listItem=document.getElementsByTagName("li");
+var listItemAll=document.querySelectorAll(".list-group-item")
+listItemAll[1].style.color="green"
 
-for(let item of listItem){
-    item.style.color="red"
-    item.style.backgroundColor="lightgrey"
+var odd=document.querySelectorAll(".list-group-item:nth-child(odd)")
+for(let item of odd){
+    item.style.backgroundColor="green"
 }
+
